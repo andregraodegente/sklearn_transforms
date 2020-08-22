@@ -1,5 +1,4 @@
 from sklearn.base import BaseEstimator, TransformerMixin
-from catboost import CatBoostClassifier
 
 # All sklearn Transforms must have the `transform` and `fit` methods
 class DropColumns(BaseEstimator, TransformerMixin):
@@ -40,15 +39,3 @@ class MeanColumns(BaseEstimator, TransformerMixin):
         data.fillna(data.mean(), inplace=True)
         # Retornamos um novo dataframe sem as colunas indesejadas
         return data
-
-
-
-class CustomCatBoostClassifier(CatBoostClassifier):
-
-    def fit(self, X, y):
-        return super().fit(
-            X,
-            y=y,
-            cat_features=list(range(0, X.shape[1])) ,
-            verbose=True
-        )
