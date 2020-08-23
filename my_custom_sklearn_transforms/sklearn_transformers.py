@@ -1,5 +1,5 @@
 from sklearn.base import BaseEstimator, TransformerMixin
-from autogluon import TabularPrediction
+from catboost import CatBoostClassifier
 
 # All sklearn Transforms must have the `transform` and `fit` methods
 class DropColumns(BaseEstimator, TransformerMixin):
