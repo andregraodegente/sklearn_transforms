@@ -1,4 +1,4 @@
-from setuptools import setup
+from setuptools import setup, find_packages
 
 
 setup(
@@ -12,8 +12,10 @@ setup(
       author='Vanderlei Munhoz',
       author_email='vnderlev@protonmail.ch',
       license='BSD',
-      packages=[
-            'my_custom_sklearn_transforms'
-      ],
-      zip_safe=False
+      packages=find_packages(),
+      include_package_data=True,
+      zip_safe=False,
+      install_requires=[
+            'catboost'
+      ]
 )
